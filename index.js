@@ -27,10 +27,7 @@ app.use(express.json());
 app.use("/todos", require("./routes/todos"));
 
 mongoose
-  .connect(MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(MONGODB_URI)
   .then(() => {
     console.log("몽고디비 연결 성공");
     app.listen(PORT, () => {
